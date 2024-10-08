@@ -1,0 +1,207 @@
+/* Algemene stijlen */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #000000; /* Zwarte achtergrond voor de hele pagina */
+    color: #e0e0e0;
+}
+
+/* Header (navbar) */
+header {
+    background-color: #000000; /* Zwarte achtergrond voor de navbar */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    text-transform: uppercase; /* Maakt de tekst hoofdletters */
+    letter-spacing: 2px; /* Maakt de spaties tussen letters groter */
+    font-weight: 700;
+}
+
+/* Navbar */
+nav {
+    background-color: rgba(0, 0, 0, 0.8); /* Zwarte achtergrond met transparantie */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Zacht schaduweffect */
+    display: flex;
+    justify-content: center; /* Centraal uitlijnen van de navigatie-items */
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #ffffff; /* Witte rand aan de onderkant */
+    position: sticky; /* Zorgt ervoor dat de navigatie blijft plakken bij scrollen */
+    top: 0; /* Plak aan de bovenkant van de pagina */
+    z-index: 1000; /* Zorg ervoor dat de navbar altijd bovenaan staat */
+}
+
+nav a {
+    color: #ffffff; /* Witte tekst voor de links */
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 15px; /* Ruimte tussen de links */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Soepele overgangseffecten */
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    background-color: #ffcc00; /* Gele achtergrond bij hover */
+    color: #000000; /* Zwarte tekst bij hover */
+}
+
+/* Hero Sectie (met achtergrondafbeelding) */
+.hero {
+    background-image: url("{{ asset('images/achtergrond.jpg') }}"); /* Correcte afbeelding via Laravel helper */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 1.5rem;
+}
+
+/* Hoofdinhoud */
+main {
+    background: #000000; /* Zwarte achtergrond voor de hoofdinhoud */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Footer */
+footer {
+    background-color: #000000; /* Zwarte achtergrond voor de footer */
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    width: 100%;
+    position: relative;
+    bottom: 0;
+    flex-shrink: 0;
+}
+
+/* Knoppen */
+.book-button, .cta-button {
+    background-color: #ffcc00; /* Gele knoppen */
+    color: black;
+    padding: 15px 30px; /* Grotere knoppen voor een modernere look */
+    text-decoration: none;
+    border-radius: 8px; /* Iets rondere hoeken */
+    margin-top: 10px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 1.1rem; /* Grotere tekst voor knoppen */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Soepele overgangseffecten */
+}
+
+.book-button:hover {
+    background-color: #d4a800; /* Donkerder geel bij hover */
+    transform: scale(1.05); /* Maak de knop groter bij hover */
+}
+
+/* Dienstenlijst */
+.service-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 40px; /* Grotere afstand tussen de kaarten */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Diensten Kaarten */
+.service-item {
+    background: #1f1f1f; /* Donkere achtergrond voor dienstenkaarten */
+    border: 2px solid #ffffff; /* Witte randen voor de dienstenkaarten */
+    border-radius: 15px; /* Rondere hoeken */
+    padding: 30px; /* Meer padding voor een luchtigere uitstraling */
+    margin: 20px;
+    flex: 1 1 calc(33.333% - 40px); /* Zorgt voor drie kaarten per rij */
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1); /* Subtiele schaduw */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Voor hover-effecten */
+    text-align: left;
+}
+
+.service-item:hover {
+    transform: translateY(-10px); /* Verplaats de kaart omhoog bij hover */
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.3); /* Zwaardere schaduw bij hover */
+}
+
+/* Dienst Titel */
+.service-item h3 {
+    font-size: 1.6rem;
+    color: #ffcc00; /* Gele kleur voor de titel van de dienst */
+    margin-bottom: 10px;
+}
+
+/* Dienst Beschrijving */
+.service-item p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #cccccc; /* Lichtgrijze tekstkleur voor de beschrijving */
+    margin-bottom: 20px;
+}
+
+/* Prijs */
+.price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff; /* Witte kleur voor de prijs */
+    margin-bottom: 10px;
+}
+
+/* Responsiviteit */
+@media (max-width: 768px) {
+    .service-item {
+        flex: 1 1 100%; /* Volledige breedte voor kleinere schermen */
+        margin-bottom: 30px;
+    }
+
+    .book-button {
+        width: 100%; /* Zorgt ervoor dat de knop over de volledige breedte van de kaart loopt */
+        text-align: center; /* Centreert de tekst in de knop */
+    }
+
+    nav a {
+        display: block;
+        margin: 5px 0; /* Ruimte tussen de links */
+    }
+}
+/* Formulier Stijlen */
+input, textarea {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #ffcc00; /* Gele rand bij focus */
+    box-shadow: 0 0 5px rgba(255, 204, 0, 0.5); /* Lichte gloed rond het invoerveld */
+}
+
+/* Knoppen */
+button {
+    transition: background-color 0.3s ease;
+}
+
+/* Link */
+a {
+    transition: color 0.3s ease;
+}
