@@ -40,5 +40,5 @@
         <button type="submit" class="bg-yellow-500 text-black px-4 py-2 rounded hover:bg-yellow-400 transition duration-200">Bevestig Boeking</button>
     </form>
 
-    <a href="{{ route('services') }}" class="block text-center text-white mt-6 underline hover:text-yellow-500">Terug naar Diensten</a>
+    <a href="{{ route('booking.create', ['service_id' => $service['id']]) }}" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Boek nu</a>
 @endsection

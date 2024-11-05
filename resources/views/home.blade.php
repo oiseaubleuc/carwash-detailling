@@ -1,8 +1,19 @@
-<!-- resources/views/home.blade.php -->
 @extends('layouts.layout')
 
+@section('title', 'Welkom bij Eye For Detailing')
+
 @section('content')
-    <h1 class="text-4xl font-bold text-center my-6">Welkom bij onze Car Wash Service!</h1>
-    <p class="text-center">Bekijk onze diensten en boek vandaag nog een afspraak.</p>
-    <a href="{{ route('services.index') }}" class="btn">Bekijk Diensten</a>
+
+    @if(session('success'))
+        <div class="alert alert-success text-center" role="alert">
+            <i class="bi bi-check-circle"></i>
+            {{ session('success') }}
+        </div>
+    @endif
+
+    <div class="hero" style="background-image: url('{{ asset('images/achtergrond.jpg') }}'); height: 100vh; background-size: cover; background-position: center;">
+        <a href="{{ route('services') }}" class="nav-button">Diensten</a>
+        <a href="{{ route('contact') }}" class="nav-button">Contact</a>
+    </div>
+
 @endsection

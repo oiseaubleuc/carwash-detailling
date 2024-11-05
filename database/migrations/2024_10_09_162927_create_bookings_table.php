@@ -9,13 +9,17 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Zorg ervoor dat 'users' bestaat
+            $table->foreignId('service_id')->constrained()->onDelete('cascade'); // Zorg ervoor dat 'services' bestaat
+            $table->dateTime('booking_time');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
