@@ -2,10 +2,23 @@
 html, body {
     height: 100%;
     margin: 0;
-    padding: 0; /* Geen padding voor body */
+    padding: 0;
     font-family: 'Poppins', sans-serif;
     color: #e0e0e0;
-    overflow: auto; /* Zorg ervoor dat scrollen mogelijk is */
+    display: flex;
+    flex-direction: column; /* Zet de richting naar kolommen */
+}
+
+.container {
+    flex: 1; /* Zorg ervoor dat de container ruimte inneemt */
+}
+
+.footer {
+    background-color: #000; /* Zwarte achtergrond */
+    color: #d8cdb9; /* Nardo grijs voor tekst */
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
 }
 
 #backgroundVideo {
@@ -330,18 +343,6 @@ form input[type="submit"], form button[type="submit"] {
     font-weight: bold; /* Extra nadruk op BTW-nummer */
 }
 
-/* Responsive Styling voor kleinere schermen */
-@media (max-width: 768px) {
-    .footer {
-        padding: 15px;
-        font-size: 0.85rem;
-    }
-
-    .footer .contact-info {
-        font-size: 0.85rem;
-        flex-direction: column; /* Stapel contactinformatie op kleinere schermen */
-    }
-}
 
 /* About Us Container */
 .about-container {
@@ -421,17 +422,6 @@ form input[type="submit"], form button[type="submit"] {
     line-height: 1.5;
 }
 
-/* Responsive Styling voor kleinere schermen */
-@media (max-width: 768px) {
-    .about-images {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .image-card {
-        width: 100%;
-    }
-}
 
 .login-container {
     max-width: 400px;
@@ -611,4 +601,25 @@ a:hover {
 .package-item h3 {
     margin: 10px 0;
     color: #ffa726; /* Kleur voor de titel van het pakket */
+}
+
+
+/* Achtergrondkleur voor specifieke pagina's */
+.service-page,
+.about-page,
+.contact-page {
+    background-color: #000000; /* Zwart als achtergrondkleur */
+    color: #d8cdb9; /* Nardo grijze tekstkleur */
+    min-height: 100vh; /* Zorgt ervoor dat de pagina ten minste de hoogte van het scherm heeft */
+    padding: 20px; /* Voeg wat padding toe voor ruimte rondom de inhoud */
+}
+
+/* Zorg ervoor dat alle tekst zichtbaar is tegen de zwarte achtergrond */
+.service-page h1,
+.about-page h1,
+.contact-page h1,
+.service-page p,
+.about-page p,
+.contact-page p {
+    color: #d8cdb9; /* Nardo grijze kleur voor de tekst */
 }

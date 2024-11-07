@@ -39,4 +39,30 @@ class BookingController extends Controller
     }
 
 
+    public function showCalendar()
+    {
+        return view('calendar'); // Zorg ervoor dat je een view hebt voor de kalender
+    }
+
+    public function fetchEvents()
+    {
+        $events = Event::all(); // Haal alle evenementen op
+        return response()->json($events);
+    }
+
+    public function storeEvent(Request $request)
+    {
+        $event = Event::create([
+            'title' => $request->title,
+            'start' => $request->start,
+            'end' => $request->end,
+        ]);
+
+        // Stuur bevestigingsmail
+        Mail::to($request->email)->send(new BookingConfirmation($request->title));
+
+        return response()->json($event);
+    }
+
+
 }

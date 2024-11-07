@@ -59,3 +59,9 @@ Route::get('/admin/dashboard', [UserController::class, 'dashboard'])->name('admi
 Route::post('/send-booking-confirmation', [MailController::class, 'sendBookingConfirmation']);
 Route::get('/book', [BookingController::class, 'showBookingForm'])->name('book');
 Route::post('/booking/submit', [BookingController::class, 'confirmBooking'])->name('booking.confirm');
+
+
+
+Route::get('/calendar', [BookingController::class, 'showCalendar'])->name('calendar');
+Route::get('/events', [BookingController::class, 'fetchEvents']);
+Route::post('/events', [BookingController::class, 'storeEvent']);
