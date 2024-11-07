@@ -54,9 +54,36 @@
                             </div>
 
                             <div class="text-center">
-                                <button type="submit" class="btn btn-warning btn-lg">Bevestig Boekingen</button>
+                                <button type="button" id="confirmBookingButton">Bevestig Boekingen</button>
                             </div>
                         </form>
+                        <div id="confirmationModal" class="modal">
+                            <div class="modal-content">
+                                <h2>Bedankt!</h2>
+                                <p>We hebben je boeking goed ontvangen. Wij nemen binnenkort contact met je op.</p>
+                                <a href="/" class="button">naar homepagina</a>
+                            </div>
+                        </div>
+
+                        <!-- JavaScript -->
+                        <script>
+                            document.getElementById('confirmBookingButton').addEventListener('click', function() {
+                                // Toon de modal
+                                document.getElementById('confirmationModal').style.display = 'block';
+                                // Verberg het formulier
+                                document.getElementById('bookingForm').style.display = 'none';
+                            });
+
+                            // Sluit de modal wanneer de gebruiker ergens buiten de modal klikt
+                            window.onclick = function(event) {
+                                var modal = document.getElementById('confirmationModal');
+                                if (event.target == modal) {
+                                    modal.style.display = "none";
+                                    document.getElementById('bookingForm').style.display = 'block'; // Toon het formulier weer
+                                }
+                            }
+                        </script>
+
                     </div>
                 </div>
             </div>

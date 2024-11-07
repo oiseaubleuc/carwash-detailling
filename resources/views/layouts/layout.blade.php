@@ -6,14 +6,16 @@
     <title>@yield('title', 'Car Wash Detailing')</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+
     <script src="{{ asset('js/script.js') }}" defer></script>
-
-
 </head>
 <body>
+
 <a href="{{ url('/') }}">
-    <img src='/public/images/logo.jpg' alt="Logo" style="height: 50px;">
+    <img src="{{ asset('images/logo.jpg') }}" alt="Car Wash Detailing Logo" class="logo">
 </a>
+
 <header>
     <h1>Car Wash Detailing</h1>
     <nav>
@@ -31,12 +33,10 @@
 <footer class="footer">
     <div class="footer-content">
         <p>© 2024 Car Wash Detailing. Alle rechten voorbehouden.</p>
-        <p>MEA Detailling BV</p>
-        <div class="contact-info">
-            <p>Telefoon: +32 487 905 165</p>
-            <p>E-mail: <a href="mailto:clean.your.carr2023@gmail.com">clean.your.carr2023@gmail.com</a></p>
-            <p>BTW: BE 0805.672.003</p>
-        </div>
+        <p>MEA Detailing BV</p>
+        <p>Telefoon: +32 487 905 165</p>
+        <p>E-mail: <a href="mailto:clean.your.carr2023@gmail.com">clean.your.carr2023@gmail.com</a></p>
+        <p>BTW: BE 0805.672.003</p>
     </div>
 </footer>
 

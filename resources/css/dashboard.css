@@ -1,0 +1,92 @@
+/* public/css/dashboard.css */
+
+body {
+    background-color: #121212; /* Donkere achtergrond voor de dashboard */
+    color: #ffffff; /* Witte tekstkleur */
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background-color: #1f1f1f; /* Donkere kleur voor de header */
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #ffa726; /* Oranje kleur voor links */
+    text-decoration: none;
+    margin: 0 15px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    padding: 20px;
+}
+
+.footer {
+    background-color: #1f1f1f;
+    padding: 10px;
+    text-align: center;
+}
+
+.footer-content {
+    color: #d8cdb9; /* Nardo grijs voor footer tekst */
+}
+
+body {
+    background-color: #121212; /* Donkere achtergrond voor het dashboard */
+    color: #ffffff; /* Witte tekst voor contrast */
+    font-family: 'Poppins', sans-serif;
+}
+
+h1, h2 {
+    color: #ff6600; /* Accentkleur voor titels */
+}
+
+.container {
+    padding: 20px;
+}
+
+.dashboard-card {
+    background-color: #1f2937; /* Donkergrijze achtergrond voor kaarten */
+    border-radius: 10px; /* Afgeronde hoeken */
+    padding: 20px; /* Ruimte binnen de kaart */
+    transition: transform 0.3s; /* Vloeiende overgang voor hover effect */
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px); /* Til de kaart op bij hover */
+}
+
+.text-orange-400 {
+    color: #ff6600; /* Oranje kleur voor links */
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Onderstreping bij hover */
+}
+.options-list {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    overflow: hidden; /* Zorg ervoor dat de lijst verborgen is */
+}
+
+.hidden {
+    max-height: 0; /* Verberg de lijst */
+    opacity: 0; /* Maak de lijst onzichtbaar */
+}
+
+.visible {
+    max-height: 500px; /* Stel een maximumhoogte in voor de zichtbare lijst */
+    opacity: 1; /* Maak de lijst zichtbaar */
+}

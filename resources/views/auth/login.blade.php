@@ -1,31 +1,24 @@
-{{-- resources/views/auth/login.blade.php --}}
-    <!DOCTYPE html>
-<html lang="nl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+@extends('layouts.layout')
 
-    <title>Inloggen</title>
-</head>
-<body>
-<h1>Inloggen</h1>
-<form method="POST" action="{{ route('login') }}">
-    @csrf
-    <div>
-        <label for="email">E-mail:</label>
-        <input type="email" name="email" required>
+@section('content')
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        @if (session('error'))
+            <div class="error-message">
+                {{ session('error') }}
+            </div>
+        @endif
+        <form action="{{ route('login') }}" method="POST">
+            @csrf
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Wachtwoord</label>
+                <input type="password" name="password" id="password" required>
+            </div>
+            <button type="submit" class="btn">Inloggen</button>
+        </form>
     </div>
-    <div>
-        <label for="password">Wachtwoord:</label>
-        <input type="password" name="password" required>
-    </div>
-    <button type="submit">Inloggen</button>
-</form>
-@if ($errors->any())
-    <div>
-        <strong>{{ $errors->first() }}</strong>
-    </div>
-@endif
-</body>
-</html>
+@endsection

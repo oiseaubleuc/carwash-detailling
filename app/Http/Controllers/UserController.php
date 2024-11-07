@@ -27,16 +27,14 @@ class UserController extends Controller
     // Sla een nieuwe gebruiker op
     public function store(Request $request)
     {
-        // Validatie van de invoer
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
         ]);
 
-        // Maak de gebruiker aan
         User::create([
-            'name' => $request->name, // Gebruik de naam van de gebruiker
+            'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'is_admin' => false, // Optioneel
@@ -55,17 +53,13 @@ class UserController extends Controller
     // Werk een bestaande gebruiker bij
     public function update(Request $request, $id)
     {
-        // Validatie van de invoer
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
-            'password' => 'nullable|string|min:8|confirmed', // Wachtwoord is optioneel bij bijwerken
+            'password' => 'nullable|string|min:8|confirmed',
         ]);
 
-        // Vind de gebruiker
         $user = User::findOrFail($id);
-
-        // Werk de gebruiker bij
         $user->name = $request->name;
         $user->email = $request->email;
 
@@ -97,30 +91,16 @@ class UserController extends Controller
     // Authenticeer de gebruiker
     public function authenticate(Request $request)
     {
-        // Valideer de inloggegevens
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        // Probeer in te loggen
         if (Auth::attempt($request->only('email', 'password'))) {
-            // Als inloggen lukt, redirect naar de dashboard
             return redirect()->route('admin.dashboard')->with('success', 'Je bent ingelogd!');
         }
 
-        // Als de gebruiker niet bestaat, maak een nieuwe gebruiker aan
-        $user = User::create([
-            'name' => 'Nieuwe Gebruiker', // Standaardnaam; je kunt dit ook aanpassen
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'is_admin' => false, // Standaard is_admin op false
-        ]);
-
-        // Log de nieuwe gebruiker in
-        Auth::login($user);
-
-        return redirect()->route('admin.dashboard')->with('success', 'Je bent aangemeld en een nieuwe account is aangemaakt!');
+        return redirect()->back()->with('error', 'Ongeldige inloggegevens.');
     }
 
     // Logout de gebruiker
@@ -129,14 +109,14 @@ class UserController extends Controller
         Auth::logout();
         return redirect()->route('login')->with('success', 'Je bent uitgelogd!');
     }
-    // Voeg deze methode toe aan je UserController
+
+    // Dashboard
     public function dashboard()
     {
-        $userCount = User::count(); // Telt het aantal gebruikers
-        $bookingCount = Booking::count(); // Telt het aantal boekingen (vervang met je daadwerkelijke model)
-        $serviceCount = Service::count(); // Telt het aantal diensten (vervang met je daadwerkelijke model)
+        $userCount = User::count();
+        $bookingCount = Booking::count();
+        $serviceCount = Service::count();
 
         return view('admin.dashboard', compact('userCount', 'bookingCount', 'serviceCount'));
     }
-
 }

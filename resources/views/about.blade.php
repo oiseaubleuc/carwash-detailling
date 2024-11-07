@@ -14,7 +14,7 @@
             <div class="about-images">
                 <!-- Service 1 -->
                 <div class="image-card">
-                    <img src="{{ asset('images/car_wash_1.jpg') }}" alt="Professionele Wasbeurt">
+                    <img src="{{ asset('images/carwash.jpg') }}" alt="Professionele Wasbeurt">
                     <h3>Professionele Wasbeurt</h3>
                     <p>Onze professionele wasbeurten zijn ontworpen om zelfs het meest hardnekkige vuil te verwijderen. We gebruiken veilige en effectieve producten die uw lak beschermen en uw auto weer als nieuw laten glanzen.</p>
                 </div>

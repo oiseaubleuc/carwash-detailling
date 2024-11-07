@@ -2,10 +2,20 @@
 html, body {
     height: 100%;
     margin: 0;
-    padding: 20px; /* Voeg padding toe aan het lichaam van de pagina */
+    padding: 0; /* Geen padding voor body */
     font-family: 'Poppins', sans-serif;
-    background-color: #000000; /* Zwarte achtergrond voor de hele pagina */
     color: #e0e0e0;
+    overflow: auto; /* Zorg ervoor dat scrollen mogelijk is */
+}
+
+#backgroundVideo {
+    position: fixed; /* Vast op de achtergrond */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Zorgt ervoor dat de video de volledige achtergrond bedekt */
+    z-index: -1; /* Plaatst de video achter andere elementen */
 }
 
 /* Logo Stijl */
@@ -13,9 +23,45 @@ html, body {
     position: absolute;
     top: 20px;
     left: 20px;
-    width: 150px; /* Stel de breedte van het logo in */
+    width: 100px; /* Kleinere breedte voor het logo */
     height: auto; /* Zorgt ervoor dat de hoogte proportioneel blijft */
     z-index: 1001; /* Zorgt ervoor dat het logo altijd boven andere elementen staat */
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(0, 0, 0, 0.8); /* Zwarte achtergrond voor de navbar met enige transparantie */
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Zorg ervoor dat de navbar boven andere elementen staat */
+}
+
+/* Logo styling binnen de navbar */
+.navbar .logo {
+    height: 50px; /* Pas de hoogte aan zoals nodig */
+    width: auto; /* Zorgt ervoor dat de breedte proportioneel blijft */
+    margin-right: 20px; /* Voeg wat ruimte toe rechts van het logo */
+}
+
+/* Link styling in de navbar */
+.nav-links {
+    display: flex;
+    gap: 15px; /* Ruimte tussen de links */
+}
+
+.nav-links a {
+    color: #d8cdb9; /* Nardo grijs tekst */
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #b0a99c; /* Donkerdere kleur bij hover */
 }
 
 /* Header (navbar) */
@@ -160,7 +206,6 @@ form input, form textarea {
 form input[type="submit"], form button[type="submit"] {
     margin-top: 10px;
 }
-x
 
 /* Book Button Styling */
 .book-btn {
@@ -239,21 +284,6 @@ x
     margin-bottom: 20px;
 }
 
-/* Book Button Styling */
-.book-btn {
-    background-color: #ff6600; /* Oranje achtergrond voor knop */
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.book-btn:hover {
-    background-color: #e55a00; /* Donkerdere kleur bij hover */
-}
-
 /* Footer Styling */
 .footer {
     background-color: #000; /* Zwarte achtergrond */
@@ -261,9 +291,11 @@ x
     padding: 20px;
     text-align: center;
     font-size: 0.9rem;
-    border-top: 1px solid #333; /* Subtiele scheiding boven de footer */
+    position: relative; /* Zorg ervoor dat de footer goed gepositioneerd is */
+    z-index: 1; /* Zorg ervoor dat de footer boven de video staat */
 }
 
+/* Footer content styling */
 .footer-content p, .footer-content a {
     margin: 5px 0;
     color: #d8cdb9; /* Nardo grijs voor links */
@@ -310,6 +342,7 @@ x
         flex-direction: column; /* Stapel contactinformatie op kleinere schermen */
     }
 }
+
 /* About Us Container */
 .about-container {
     text-align: center;
@@ -398,4 +431,184 @@ x
     .image-card {
         width: 100%;
     }
+}
+
+.login-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1a1a1a;
+    color: #d8cdb9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    color: #ff6600;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    color: #d8cdb9;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.btn {
+    background-color: #ff6600;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #e55a00;
+}
+
+.error-message {
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Dashboard Styling */
+.container {
+    max-width: 1200px; /* Max breedte voor de container */
+    margin: 0 auto; /* Centraal uitlijnen */
+    padding: 20px; /* Padding rondom de container */
+}
+
+h1 {
+    color: #ffa726; /* Oranjekleurige koppen */
+    font-size: 2.5rem; /* Grootte van de kop */
+}
+
+h2 {
+    color: #d8cdb9; /* Nardo grijze kleur voor subkoppen */
+}
+
+.bg-gray-800 {
+    background-color: #1a1a1a; /* Donkergrijze achtergrond */
+}
+
+.text-white {
+    color: #fff; /* Witte tekst */
+}
+
+.text-orange-400 {
+    color: #ffa726; /* Oranje kleur voor links */
+}
+
+.grid {
+    display: grid; /* Grid layout voor het dashboard */
+    gap: 20px; /* Ruimte tussen de items */
+}
+
+.rounded {
+    border-radius: 8px; /* Ronde hoeken */
+}
+
+.shadow {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Schaduw effect */
+}
+
+a {
+    text-decoration: none; /* Geen onderstreping voor links */
+}
+
+a:hover {
+    text-decoration: underline; /* Onderstreping bij hover */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(1, 1fr); /* Één kolom op kleinere schermen */
+    }
+}
+
+/* Modal stijlen */
+.modal {
+    display: none; /* Standaard verborgen */
+    position: fixed; /* Blijft op zijn plaats */
+    z-index: 1000; /* Bovenop */
+    left: 0;
+    top: 0;
+    width: 100%; /* Volledige breedte */
+    height: 100%; /* Volledige hoogte */
+    overflow: auto; /* Schakel scrollen in indien nodig */
+    background-color: rgba(0, 0, 0, 0.7); /* Zwart met transparantie */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% van boven en gecentreerd */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Kan meer of minder zijn, afhankelijk van de schermgrootte */
+}
+
+.button {
+    background-color: #FF6600; /* Jouw gewenste kleur */
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.packages-container {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #1a1a1a; /* Achtergrondkleur voor de pakketten sectie */
+    color: #d8cdb9; /* Tekstkleur voor pakketten */
+}
+
+.packages-container h2 {
+    font-size: 2.5rem;
+    color: #ff6600; /* Kleur voor de titel */
+    margin-bottom: 20px;
+}
+
+.packages-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Zorgt ervoor dat de pakketten goed schalen op kleinere schermen */
+}
+
+.package-item {
+    background-color: #2b2b2b; /* Achtergrondkleur voor pakket items */
+    color: #d8cdb9; /* Tekstkleur */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    flex: 1 1 300px; /* Flexibele breedte voor de pakketten */
+    transition: transform 0.3s; /* Voor hover effect */
+}
+
+.package-item:hover {
+    transform: translateY(-5px); /* Til het pakket omhoog bij hover */
+}
+
+.package-item h3 {
+    margin: 10px 0;
+    color: #ffa726; /* Kleur voor de titel van het pakket */
 }
