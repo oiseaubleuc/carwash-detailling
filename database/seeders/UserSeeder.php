@@ -10,7 +10,7 @@ class UserSeeder extends Seeder
         User::create([
             'name' => 'Admin',
             'email' => 'admin@example.com',
-            'password' => bcrypt('password'), // Gebruik hier een veilig wachtwoord
+            'password' => bcrypt('password'),
             'is_admin' => true,
         ]);
     }

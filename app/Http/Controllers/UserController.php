@@ -11,20 +11,18 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    // Toon alle gebruikers
     public function index()
     {
         $users = User::all();
         return view('admin.users.dashboard', compact('users'));
     }
 
-    // Toon het formulier voor het aanmaken van een nieuwe gebruiker
+
     public function create()
     {
         return view('admin.users.create');
     }
 
-    // Sla een nieuwe gebruiker op
     public function store(Request $request)
     {
         $request->validate([
@@ -43,14 +41,12 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'Gebruiker aangemaakt!');
     }
 
-    // Toon het formulier om een gebruiker te bewerken
     public function edit($id)
     {
         $user = User::findOrFail($id);
         return view('admin.users.edit', compact('user'));
     }
 
-    // Werk een bestaande gebruiker bij
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -73,7 +69,6 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'Gebruiker bijgewerkt!');
     }
 
-    // Verwijder een gebruiker
     public function destroy($id)
     {
         $user = User::findOrFail($id);
@@ -82,13 +77,11 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'Gebruiker verwijderd!');
     }
 
-    // Toon het inlogformulier
     public function login()
     {
-        return view('auth.login'); // Zorg ervoor dat je een login view hebt
+        return view('auth.login');
     }
 
-    // Authenticeer de gebruiker
     public function authenticate(Request $request)
     {
         $request->validate([
@@ -103,14 +96,12 @@ class UserController extends Controller
         return redirect()->back()->with('error', 'Ongeldige inloggegevens.');
     }
 
-    // Logout de gebruiker
     public function logout()
     {
         Auth::logout();
         return redirect()->route('login')->with('success', 'Je bent uitgelogd!');
     }
 
-    // Dashboard
     public function dashboard()
     {
         $userCount = User::count();

@@ -9,14 +9,14 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->boolean('is_admin')->default(false); // Voegt de is_admin kolom toe
+            $table->boolean('is_admin')->default(false);
         });
     }
 
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('is_admin'); // Verwijdert de is_admin kolom als de migratie wordt teruggedraaid
+            $table->dropColumn('is_admin');
         });
     }
 };

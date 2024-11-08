@@ -9,7 +9,7 @@ class ServiceController extends Controller
 {
     public function index()
     {
-        $services = Service::all(); // Haal alle services op uit de database
+        $services = Service::all();
         return view('services', compact('services'));
     }
 

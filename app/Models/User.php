@@ -14,7 +14,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'is_admin', // Zorg dat 'is_admin' hier is opgenomen
+        'is_admin',
     ];
 
 

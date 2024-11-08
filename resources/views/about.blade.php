@@ -12,28 +12,24 @@
             </div>
 
             <div class="about-images">
-                <!-- Service 1 -->
                 <div class="image-card">
                     <img src="{{ asset('images/carwash.jpg') }}" alt="Professionele Wasbeurt">
                     <h3>Professionele Wasbeurt</h3>
                     <p>Onze professionele wasbeurten zijn ontworpen om zelfs het meest hardnekkige vuil te verwijderen. We gebruiken veilige en effectieve producten die uw lak beschermen en uw auto weer als nieuw laten glanzen.</p>
                 </div>
 
-                <!-- Service 2 -->
                 <div class="image-card">
                     <img src="{{ asset('images/interieur.jpg') }}" alt="Interieur Reiniging">
                     <h3>Interieur Reiniging</h3>
                     <p>Een frisse en schone omgeving in uw auto begint bij een grondige interieurreiniging. Wij reinigen en desinfecteren uw stoelen, tapijten, dashboard en meer voor een compleet opgefrist interieur.</p>
                 </div>
 
-                <!-- Service 3 -->
                 <div class="image-card">
                     <img src="{{ asset('images/foto1.jpg') }}" alt="Exterieur Polijsten">
                     <h3>Exterieur Polijsten</h3>
                     <p>Onze polijstservice verwijdert kleine krassen en onvolkomenheden uit de lak van uw auto. Hierdoor krijgt uw auto een diepere glans en ziet het er weer als nieuw uit.</p>
                 </div>
 
-                <!-- Service 4 -->
                 <div class="image-card">
                     <img src="{{ asset('images/foto2.png') }}" alt="Keramische Coating">
                     <h3>Keramische Coating</h3>

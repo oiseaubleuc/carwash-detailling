@@ -8,7 +8,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard'); // Maak een view aan voor het dashboard
+        return view('admin.dashboard');
     }
 
 }

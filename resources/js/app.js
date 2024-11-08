@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const optionsList = document.querySelector('.options-list');
 
     toggleOptions.addEventListener('click', function () {
-        optionsList.classList.toggle('hidden'); // Toggle de hidden klasse
-        optionsList.classList.toggle('visible'); // Toggle de visible klasse
+        optionsList.classList.toggle('hidden');
+        optionsList.classList.toggle('visible');
     });
 });
