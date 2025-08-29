@@ -1,66 +1,13 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+Carwash-Detailling (Laravel Project)
+Carwash-Detailling is een webapplicatie die ontwikkeld werd met het Laravel-framework. Het project werd opgezet als een praktijkcase voor een carwash- en detailing-bedrijf. Het doel van dit project was om de mogelijkheden van Laravel te verkennen en om ervaring op te doen met het bouwen van een gestructureerde webapplicatie op basis van het MVC-model.
+De applicatie biedt gebruikers de mogelijkheid om zich te registreren en in te loggen. Daarnaast kunnen verschillende diensten, zoals wasbeurten en detailing-pakketten, beheerd worden. Het systeem maakt het ook mogelijk om afspraken te plannen en deze afspraken overzichtelijk weer te geven. Voor de gebruikersinterface werd gebruikgemaakt van Laravel’s Blade-templates, waardoor herbruikbare layouts en een consistente opmaak konden worden gerealiseerd.
+Bij de ontwikkeling werd gebruikgemaakt van Laravel 10.x, samen met Composer en de Artisan CLI voor het aanmaken van modellen, controllers en migraties. Als database werd zowel SQLite als MySQL getest. Voor de authenticatie werd Laravel Breeze gebruikt, en voor het beheren van assets Laravel Mix of Vite.
+Een gekend probleem dat tijdens de ontwikkeling opdook was de configuratie van de e-mailfunctionaliteit. Ondanks meerdere pogingen lukte het niet om e-mails correct te laten versturen, wat een leerpunt was in verband met debugging en het instellen van SMTP-configuratie.
+Het uiteindelijke doel van dit project was niet alleen om een functionele applicatie te maken, maar vooral om inzicht te krijgen in hoe Laravel gestructureerd is, welke hulpmiddelen het framework biedt en hoe deze in de praktijk toegepast kunnen worden.
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Bronnen – Laravel Carwash-Detailling
+Voor de ontwikkeling van dit project werd in de eerste plaats gebruikgemaakt van de officiële documentatie van Laravel, die beschikbaar is via https://laravel.com/docs. Deze bron bood de nodige uitleg over de basisopzet van een Laravel-project, het gebruik van de Artisan CLI, de configuratie van de .env-bestanden en de implementatie van het MVC-patroon.
+Voor de implementatie van authenticatie werd Laravel Breeze geraadpleegd, samen met de officiële handleiding die uitlegt hoe registratie- en loginfunctionaliteit kan worden toegevoegd. Daarnaast werden enkele tutorials en communityblogs gebruikt om beter inzicht te krijgen in de werking van Blade-templates, database-migraties en seeding.
+Bij problemen met configuratie, zoals de integratie van de e-mailfunctionaliteit, werd veelvuldig gezocht naar oplossingen via Stack Overflow en via Laravel-communityfora. Ook werden YouTube-tutorials geraadpleegd om concrete voorbeelden te zien van hoe men met Artisan-commando’s en Eloquent ORM werkt.
+Verder werd Composer gebruikt als pakketbeheerder, waarbij de officiële Composer-documentatie (https://getcomposer.org/doc/) een referentie vormde voor de installatie en het beheer van afhankelijkheden.
+Ten slotte werd voor het beheer van assets (CSS en JavaScript) gekeken naar de documentatie van Laravel Mix en Vite, die geïntegreerd kunnen worden binnen Laravel om de front-end te bundelen.
