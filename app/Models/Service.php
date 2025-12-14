@@ -14,4 +14,16 @@ class Service extends Model
         'description',
         'price'
     ];
+
+    protected $casts = [
+        'price' => 'decimal:2',
+    ];
+
+    /**
+     * Get all bookings for this service
+     */
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

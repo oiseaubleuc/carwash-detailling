@@ -1,0 +1,94 @@
+/* public/css/dashboard.css */
+
+body {
+    background-color: #000000; /* Donkere achtergrond voor de dashboard */
+    color: #e8e8e8; /* Witte tekstkleur */
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background-color: #000000; /* Donkere kleur voor de header */
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #E8D5B7;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: #E8D5B7; /* Goud kleur voor links */
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #E8D5B7;
+    text-shadow: 0 0 10px rgba(232, 213, 183, 0.5);
+}
+
+.container {
+    padding: 20px;
+}
+
+.footer {
+    background-color: #000000;
+    padding: 10px;
+    text-align: center;
+    border-top: 2px solid #E8D5B7;
+}
+
+.footer-content {
+    color: #E8D5B7; /* Goud voor footer tekst */
+}
+
+h1, h2 {
+    color: #E8D5B7; /* Goud accentkleur voor titels */
+    text-shadow: 0 0 20px rgba(232, 213, 183, 0.5);
+}
+
+.dashboard-card {
+    background-color: #111111; /* Donkergrijze achtergrond voor kaarten */
+    border-radius: 10px; /* Afgeronde hoeken */
+    padding: 20px; /* Ruimte binnen de kaart */
+    transition: all 0.3s; /* Vloeiende overgang voor hover effect */
+    border: 1px solid #E8D5B7;
+    box-shadow: 0 4px 8px rgba(106, 13, 173, 0.3);
+}
+
+.dashboard-card:hover {
+    transform: translateY(-5px); /* Til de kaart op bij hover */
+    border-color: #E8D5B7;
+    box-shadow: 0 8px 20px rgba(232, 213, 183, 0.4);
+}
+
+.text-orange-400 {
+    color: #E8D5B7; /* Goud kleur voor links */
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Onderstreping bij hover */
+}
+
+.options-list {
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    overflow: hidden; /* Zorg ervoor dat de lijst verborgen is */
+}
+
+.hidden {
+    max-height: 0; /* Verberg de lijst */
+    opacity: 0; /* Maak de lijst onzichtbaar */
+}
+
+.visible {
+    max-height: 500px; /* Stel een maximumhoogte in voor de zichtbare lijst */
+    opacity: 1; /* Maak de lijst zichtbaar */
+}
+

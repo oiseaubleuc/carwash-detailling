@@ -3,19 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Mail; // Als je mail wilt gebruiken, voeg de Mail facades toe
-use App\Mail\ContactForm;
+use Illuminate\Support\Facades\Mail;
 
 class ContactController extends Controller
 {
     public function send(Request $request)
     {
         $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email',
-            'message' => 'required|string',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'message' => 'required|string|max:2000',
         ]);
 
-        return redirect()->route('home')->with('success', 'Bericht verzonden!');
+        // TODO: Implement actual email sending if needed
+        // Mail::to(config('mail.from.address'))->send(new ContactForm($request->all()));
+
+        return redirect()->route('contact')->with('success', 'Bedankt voor uw bericht! We nemen zo snel mogelijk contact met u op.');
     }
 }

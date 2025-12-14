@@ -25,5 +25,15 @@ class User extends Authenticatable
 
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+        'is_admin' => 'boolean',
     ];
+
+    /**
+     * Get all bookings for this user
+     */
+    public function bookings()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

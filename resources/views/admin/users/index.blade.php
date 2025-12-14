@@ -1,34 +1,88 @@
-@extends('layouts.layout')
+@extends('layouts.admin')
+
+@section('title', 'Beheer Gebruikers')
 
 @section('content')
-    <div class="container mx-auto mt-8">
-        <h1 class="text-3xl font-bold">Beheer Gebruikers</h1>
-        <a href="{{ route('admin.users.create') }}" class="btn btn-primary mb-4">Nieuwe Gebruiker Aanmaken</a>
+<div style="width: 100%;">
+    <h1 class="admin-page-title">Beheer Gebruikers</h1>
+    
+    @if(session('success'))
+        <div class="admin-message success">
+            <i class="fas fa-check-circle"></i>
+            <span>{{ session('success') }}</span>
+        </div>
+    @endif
+    
+    @if(session('error'))
+        <div class="admin-message error">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>{{ session('error') }}</span>
+        </div>
+    @endif
+    
+    @if($errors->any())
+        <div class="admin-message error">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                <i class="fas fa-exclamation-triangle"></i>
+                <strong>Er zijn fouten opgetreden:</strong>
+            </div>
+            <ul style="margin: 0; padding-left: 20px;">
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
-        <table class="min-w-full bg-gray-800">
+    <a href="{{ route('admin.users.create') }}" class="admin-btn">
+        <i class="fas fa-plus"></i> Nieuwe Gebruiker Aanmaken
+    </a>
+
+    <div class="admin-table-container">
+        <table class="admin-table">
             <thead>
-            <tr>
-                <th class="text-left py-3 px-4">Naam</th>
-                <th class="text-left py-3 px-4">E-mail</th>
-                <th class="text-left py-3 px-4">Acties</th>
-            </tr>
+                <tr>
+                    <th>Naam</th>
+                    <th>E-mail</th>
+                    <th>Admin</th>
+                    <th>Acties</th>
+                </tr>
             </thead>
             <tbody>
-            @foreach($users as $user)
-                <tr>
-                    <td class="py-3 px-4">{{ $user->name }}</td>
-                    <td class="py-3 px-4">{{ $user->email }}</td>
-                    <td class="py-3 px-4">
-                        <a href="{{ route('admin.users.edit', $user->id) }}" class="text-blue-500 hover:underline">Bewerken</a>
-                        <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="text-red-500 hover:underline">Verwijderen</button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
+                @forelse($users as $user)
+                    <tr>
+                        <td data-label="Naam">{{ $user->name }}</td>
+                        <td data-label="E-mail">{{ $user->email }}</td>
+                        <td data-label="Admin" style="color: {{ $user->is_admin ? '#4CAF50' : '#e8e8e8' }};">
+                            {{ $user->is_admin ? 'Ja' : 'Nee' }}
+                        </td>
+                        <td data-label="Acties">
+                            <div style="display: flex; flex-direction: column; gap: 8px;">
+                                <a href="{{ route('admin.users.edit', $user->id) }}" class="admin-link">Bewerken</a>
+                                <form action="{{ route('admin.users.destroy', $user->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" onclick="return confirm('Weet je zeker dat je deze gebruiker wilt verwijderen?')" 
+                                            class="admin-delete-btn">
+                                        Verwijderen
+                                    </button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                @empty
+                    <tr>
+                        <td colspan="4" style="text-align: center; padding: 30px; color: #e8e8e8;">Geen gebruikers gevonden.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
+
+    <div style="margin-top: 30px;">
+        <a href="{{ route('admin.dashboard') }}" class="admin-link">
+            <i class="fas fa-arrow-left"></i> Terug naar Dashboard
+        </a>
+    </div>
+</div>
 @endsection

@@ -13,8 +13,8 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::all();
-        return view('admin.users.dashboard', compact('users'));
+        $users = User::orderBy('created_at', 'desc')->get();
+        return view('admin.users.index', compact('users'));
     }
 
 
@@ -29,13 +29,14 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
+            'is_admin' => 'nullable|boolean',
         ]);
 
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'is_admin' => false, // Optioneel
+            'is_admin' => $request->has('is_admin') ? (bool)$request->is_admin : false,
         ]);
 
         return redirect()->route('admin.users.index')->with('success', 'Gebruiker aangemaakt!');
@@ -53,9 +54,18 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $id,
             'password' => 'nullable|string|min:8|confirmed',
+            'is_admin' => 'nullable|boolean',
         ]);
 
         $user = User::findOrFail($id);
+        
+        // Prevent user from removing their own admin status
+        if ($user->id === auth()->id() && $request->has('is_admin') && !$request->is_admin) {
+            return redirect()->back()
+                ->withErrors(['is_admin' => 'Je kunt je eigen admin status niet verwijderen.'])
+                ->withInput();
+        }
+
         $user->name = $request->name;
         $user->email = $request->email;
 
@@ -63,7 +73,10 @@ class UserController extends Controller
             $user->password = Hash::make($request->password);
         }
 
-        $user->is_admin = $request->is_admin ?? $user->is_admin; // Optioneel
+        if ($request->has('is_admin')) {
+            $user->is_admin = (bool)$request->is_admin;
+        }
+        
         $user->save();
 
         return redirect()->route('admin.users.index')->with('success', 'Gebruiker bijgewerkt!');
@@ -107,7 +120,29 @@ class UserController extends Controller
         $userCount = User::count();
         $bookingCount = Booking::count();
         $serviceCount = Service::count();
+        
+        // Additional statistics
+        $todayBookings = Booking::whereDate('booking_time', today())->count();
+        $thisWeekBookings = Booking::whereBetween('booking_time', [now()->startOfWeek(), now()->endOfWeek()])->count();
+        $thisMonthBookings = Booking::whereMonth('booking_time', now()->month)
+            ->whereYear('booking_time', now()->year)
+            ->count();
+        $upcomingBookings = Booking::where('booking_time', '>=', now())
+            ->orderBy('booking_time', 'asc')
+            ->limit(5)
+            ->with(['service'])
+            ->get();
+        $pendingBookings = Booking::where('booking_time', '>=', now())->count();
 
-        return view('admin.dashboard', compact('userCount', 'bookingCount', 'serviceCount'));
+        return view('admin.dashboard', compact(
+            'userCount', 
+            'bookingCount', 
+            'serviceCount',
+            'todayBookings',
+            'thisWeekBookings',
+            'thisMonthBookings',
+            'upcomingBookings',
+            'pendingBookings'
+        ));
     }
 }

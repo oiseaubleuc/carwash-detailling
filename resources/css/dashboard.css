@@ -1,15 +1,16 @@
 /* public/css/dashboard.css */
 
 body {
-    background-color: #121212; /* Donkere achtergrond voor de dashboard */
-    color: #ffffff; /* Witte tekstkleur */
+    background-color: #000000; /* Donkere achtergrond voor de dashboard */
+    color: #e8e8e8; /* Witte tekstkleur */
     font-family: 'Poppins', sans-serif;
 }
 
 header {
-    background-color: #1f1f1f; /* Donkere kleur voor de header */
+    background-color: #000000; /* Donkere kleur voor de header */
     padding: 20px;
     text-align: center;
+    border-bottom: 2px solid #E8D5B7;
 }
 
 nav {
@@ -17,13 +18,16 @@ nav {
 }
 
 nav a {
-    color: #ffa726; /* Oranje kleur voor links */
+    color: #E8D5B7; /* Goud kleur voor links */
     text-decoration: none;
     margin: 0 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    color: #E8D5B7;
+    text-shadow: 0 0 10px rgba(232, 213, 183, 0.5);
 }
 
 .container {
@@ -31,23 +35,25 @@ nav a:hover {
 }
 
 .footer {
-    background-color: #1f1f1f;
+    background-color: #000000;
     padding: 10px;
     text-align: center;
+    border-top: 2px solid #E8D5B7;
 }
 
 .footer-content {
-    color: #d8cdb9; /* Nardo grijs voor footer tekst */
+    color: #E8D5B7; /* Goud voor footer tekst */
 }
 
 body {
-    background-color: #121212; /* Donkere achtergrond voor het dashboard */
-    color: #ffffff; /* Witte tekst voor contrast */
+    background-color: #000000; /* Donkere achtergrond voor het dashboard */
+    color: #e8e8e8; /* Witte tekst voor contrast */
     font-family: 'Poppins', sans-serif;
 }
 
 h1, h2 {
-    color: #ff6600; /* Accentkleur voor titels */
+    color: #E8D5B7; /* Goud accentkleur voor titels */
+    text-shadow: 0 0 20px rgba(232, 213, 183, 0.5);
 }
 
 .container {
@@ -55,18 +61,22 @@ h1, h2 {
 }
 
 .dashboard-card {
-    background-color: #1f2937; /* Donkergrijze achtergrond voor kaarten */
+    background-color: #111111; /* Donkergrijze achtergrond voor kaarten */
     border-radius: 10px; /* Afgeronde hoeken */
     padding: 20px; /* Ruimte binnen de kaart */
-    transition: transform 0.3s; /* Vloeiende overgang voor hover effect */
+    transition: all 0.3s; /* Vloeiende overgang voor hover effect */
+    border: 1px solid #E8D5B7;
+    box-shadow: 0 4px 8px rgba(106, 13, 173, 0.3);
 }
 
 .dashboard-card:hover {
     transform: translateY(-5px); /* Til de kaart op bij hover */
+    border-color: #E8D5B7;
+    box-shadow: 0 8px 20px rgba(232, 213, 183, 0.4);
 }
 
 .text-orange-400 {
-    color: #ff6600; /* Oranje kleur voor links */
+    color: #E8D5B7; /* Goud kleur voor links */
 }
 
 a {

@@ -11,7 +11,7 @@
 
 .login-container h2 {
     margin-bottom: 20px;
-    color: #ff6600;
+    color: #597335;
 }
 
 .form-group {
@@ -33,7 +33,7 @@
 }
 
 .btn {
-    background-color: #ff6600;
+    background-color: #597335;
     color: #fff;
     padding: 10px 20px;
     border: none;
@@ -43,7 +43,7 @@
 }
 
 .btn:hover {
-    background-color: #e55a00;
+    background-color: #597335;
 }
 
 .error-message {
