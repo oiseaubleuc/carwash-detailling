@@ -18,6 +18,12 @@ class UserController extends Controller
     }
 
 
+    public function show($id)
+    {
+        $user = User::findOrFail($id);
+        return view('admin.users.show', compact('user'));
+    }
+
     public function create()
     {
         return view('admin.users.create');

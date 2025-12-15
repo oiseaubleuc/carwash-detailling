@@ -19,7 +19,7 @@ class ServiceController extends Controller
     /**
      * Public: Show a specific service
      */
-    public function show($id)
+    public function publicShow($id)
     {
         $service = Service::findOrFail($id);
         return view('packages.book', compact('service'));
@@ -32,6 +32,15 @@ class ServiceController extends Controller
     {
         $services = Service::orderBy('created_at', 'desc')->get();
         return view('admin.services.index', compact('services'));
+    }
+
+    /**
+     * Admin: Show a specific service
+     */
+    public function show($id)
+    {
+        $service = Service::with('bookings')->findOrFail($id);
+        return view('admin.services.show', compact('service'));
     }
 
     /**

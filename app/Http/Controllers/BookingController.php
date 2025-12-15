@@ -130,6 +130,12 @@ class BookingController extends Controller
         return view('admin.bookings.index', compact('bookings'));
     }
 
+    public function show($id)
+    {
+        $booking = Booking::with(['service', 'user'])->findOrFail($id);
+        return view('admin.bookings.show', compact('booking'));
+    }
+
     public function create()
     {
         $services = Service::all();
