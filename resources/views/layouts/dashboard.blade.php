@@ -12,7 +12,7 @@
 </head>
 <body>
 <a href="{{ url('/') }}">
-    <img src="{{ asset('images/logo.jpg') }}" alt="Car Wash Detailing Logo" class="logo">
+    <img src="{{ asset('images/site-logo.jpg') }}" alt="Car Wash Detailing Logo" class="logo">
 
 </a>
 <header>

@@ -1,13 +1,61 @@
-Carwash-Detailling (Laravel Project)
-Carwash-Detailling is een webapplicatie die ontwikkeld werd met het Laravel-framework. Het project werd opgezet als een praktijkcase voor een carwash- en detailing-bedrijf. Het doel van dit project was om de mogelijkheden van Laravel te verkennen en om ervaring op te doen met het bouwen van een gestructureerde webapplicatie op basis van het MVC-model.
-De applicatie biedt gebruikers de mogelijkheid om zich te registreren en in te loggen. Daarnaast kunnen verschillende diensten, zoals wasbeurten en detailing-pakketten, beheerd worden. Het systeem maakt het ook mogelijk om afspraken te plannen en deze afspraken overzichtelijk weer te geven. Voor de gebruikersinterface werd gebruikgemaakt van Laravel’s Blade-templates, waardoor herbruikbare layouts en een consistente opmaak konden worden gerealiseerd.
-Bij de ontwikkeling werd gebruikgemaakt van Laravel 10.x, samen met Composer en de Artisan CLI voor het aanmaken van modellen, controllers en migraties. Als database werd zowel SQLite als MySQL getest. Voor de authenticatie werd Laravel Breeze gebruikt, en voor het beheren van assets Laravel Mix of Vite.
-Een gekend probleem dat tijdens de ontwikkeling opdook was de configuratie van de e-mailfunctionaliteit. Ondanks meerdere pogingen lukte het niet om e-mails correct te laten versturen, wat een leerpunt was in verband met debugging en het instellen van SMTP-configuratie.
-Het uiteindelijke doel van dit project was niet alleen om een functionele applicatie te maken, maar vooral om inzicht te krijgen in hoe Laravel gestructureerd is, welke hulpmiddelen het framework biedt en hoe deze in de praktijk toegepast kunnen worden.
+# Carwash Detailling (Laravel Project)
 
-Bronnen – Laravel Carwash-Detailling
-Voor de ontwikkeling van dit project werd in de eerste plaats gebruikgemaakt van de officiële documentatie van Laravel, die beschikbaar is via https://laravel.com/docs. Deze bron bood de nodige uitleg over de basisopzet van een Laravel-project, het gebruik van de Artisan CLI, de configuratie van de .env-bestanden en de implementatie van het MVC-patroon.
-Voor de implementatie van authenticatie werd Laravel Breeze geraadpleegd, samen met de officiële handleiding die uitlegt hoe registratie- en loginfunctionaliteit kan worden toegevoegd. Daarnaast werden enkele tutorials en communityblogs gebruikt om beter inzicht te krijgen in de werking van Blade-templates, database-migraties en seeding.
-Bij problemen met configuratie, zoals de integratie van de e-mailfunctionaliteit, werd veelvuldig gezocht naar oplossingen via Stack Overflow en via Laravel-communityfora. Ook werden YouTube-tutorials geraadpleegd om concrete voorbeelden te zien van hoe men met Artisan-commando’s en Eloquent ORM werkt.
-Verder werd Composer gebruikt als pakketbeheerder, waarbij de officiële Composer-documentatie (https://getcomposer.org/doc/) een referentie vormde voor de installatie en het beheer van afhankelijkheden.
-Ten slotte werd voor het beheer van assets (CSS en JavaScript) gekeken naar de documentatie van Laravel Mix en Vite, die geïntegreerd kunnen worden binnen Laravel om de front-end te bundelen.
+Carwash Detailling is een praktijkproject gebouwd met Laravel (MVC-architectuur) dat gericht is op het aanbieden en beheren van carwash- en detailing-services. De applicatie bevat:
+
+- Gebruikersregistratie en login
+- Admin dashboard met gebruikers-, diensten- en boekingenbeheer
+- Reserveringssysteem met tijdsloten
+- Blade templates voor consistente UI
+
+## Technische details
+
+- Framework: Laravel 10.x
+- Auth: Laravel Breeze
+- Database: MySQL / SQLite (afhankelijk van omgeving)
+- Assets: Vite
+
+## Seeders & Admin
+
+- Er is een `UserSeeder` die een admin gebruiker aanmaakt met:
+	- **Email:** `admin@carwash.be`
+	- **Wachtwoord:** `password`
+
+- Je kunt de admin ook (aanmaken of bijwerken) via het artisan-commando:
+
+	php artisan admin:create admin@carwash.be YourSecurePassword
+
+	Gebruik deze opdracht om het wachtwoord direct te veranderen.
+
+## Afbeeldingen (public/images)
+
+De volgende afbeeldingsbestanden zijn hernoemd voor duidelijkheid en consistentie. Hieronder staat het nieuwe bestandsnaam - en een korte uitleg over waar het gebruikt wordt:
+
+| Bestand | Uitleg |
+|---|---|
+| `hero-bg.jpg` | Achtergrond / hero afbeelding gebruikt op de homepagina.
+| `hero-1.jpg` | Extra hero/visual (origineel `foto1.jpg`).
+| `hero-2.png` | Extra hero/visual (origineel `foto2.png`).
+| `site-logo.jpg` | Site / dashboard logo (voor navigatie en header).
+| `service-wash.jpg` | Afbeelding voor "Professionele Wasbeurt" service.
+| `service-interior.jpg` | Afbeelding voor "Interieur Reiniging" service.
+| `service-polish.jpg` | Afbeelding voor "Exterieur Polijsten" service.
+| `service-premium.jpg` | Afbeelding voor "Premium" service.
+
+Deze bestanden worden vanuit Blade-views geladen met `asset('images/<bestandsnaam>')`.
+
+## Installatie
+
+1. Clone the repo
+2. Composer install: `composer install`
+3. Copy `.env.example` → `.env` and set DB credentials
+4. Run migrations & seeders: `php artisan migrate --seed`
+5. Serve: `php artisan serve`
+
+## Bekende punten & tips
+
+- Pas altijd het admin-wachtwoord aan vóór productie.
+- Check `.env` mail-instellingen als je e-mails wil laten werken.
+
+---
+
+Als je wilt dat ik de afbeeldingen ook uitputtend optimaliseer of een afbeelding CDN instel, zeg het even — ik kan dat toevoegen of uitvoeren.

@@ -25,7 +25,7 @@
         <div class="navbar-container">
             <!-- Logo -->
             <a href="{{ url('/') }}" class="navbar-logo">
-                <img src="{{ asset('images/logo.jpg') }}" alt="MEA Detailing Logo">
+                <img src="{{ asset('images/site-logo.jpg') }}" alt="MEA Detailing Logo">
                 <span class="logo-text">MEA Detailing</span>
             </a>
 
