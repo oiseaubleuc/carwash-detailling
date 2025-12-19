@@ -43,6 +43,20 @@ De volgende afbeeldingsbestanden zijn hernoemd voor duidelijkheid en consistenti
 
 Deze bestanden worden vanuit Blade-views geladen met `asset('images/<bestandsnaam>')`.
 
+## Screenshots (geordend) 🖼️
+
+De project-screenshots bevinden zich in `public/screenshot/` en zijn **nummeriek geordend** zodat ze de belangrijkste views en flow van de applicatie tonen.
+
+| Bestand | Voorvertoning | Beschrijving |
+|---|---:|---|
+| `screen1.png` | <img src="public/screenshot/screen1.png" width="240" alt="screen1"> | **Admin Dashboard** — overzichtsscherm wanneer een admin is ingelogd (statistieken, snelle acties).
+| `screen2.png` | <img src="public/screenshot/screen2.png" width="240" alt="screen2"> | **Home - Diensten** — sectie met diensten en korte omschrijvingen.
+| `screen3.png` | <img src="public/screenshot/screen3.png" width="240" alt="screen3"> | **Service cards** — gedetailleerde weergave van pakketten en prijzen.
+| `screen4.png` | <img src="public/screenshot/screen4.png" width="240" alt="screen4"> | **Feature sectie** — 'Waarom kiezen' / voordelen en iconen.
+| `screen5.png` | <img src="public/screenshot/screen5.png" width="240" alt="screen5"> | **Homepage hero** — grote titel, call-to-action-knoppen en intro-tekst.
+
+Als je liever andere omschrijvingen wilt gebruiken of een andere volgorde wilt markeren, laat het me weten dan pas ik het aan.
+
 ## Installatie
 
 1. Clone the repo
